@@ -1,0 +1,22 @@
+Public Function MB(Entidade as String, SubEntidade as String, ID As String, Valor As Double) As String
+'Esta função calcula a referência multibanco, mediante os seguintes parametros 
+'Entidade - Entidade fornecida pela IFTHEN (5 digitos)
+'SubEntidade - SubEntidade fornecida pela IFTHEN (3 digitos)
+'ID - pode ser o código do cliente ou o código do documento (no máximo 4 algarismos)
+'Valor - Valor a pagar
+
+
+Dim Aux As String
+Dim check As Integer
+
+
+If ID <> "" And Valor <> 0 Then
+    Aux = Entidade & SubEntidade & Right(Format(ID, "0000"), 4) & Format(Valor * 100, "00000000")
+	
+    check = 98 - (51 * Mid(Aux, 1, 1) + 73 * Mid(Aux, 2, 1) + 17 * Mid(Aux, 3, 1) + 89 * Mid(Aux, 4, 1) + 38 * Mid(Aux, 5, 1) + 62 * Mid(Aux, 6, 1) + 45 * Mid(Aux, 7, 1) + 53 * Mid(Aux, 8, 1) + 15 * Mid(Aux, 9, 1) + 50 * Mid(Aux, 10, 1) + 5 * Mid(Aux, 11, 1) + 49 * Mid(Aux, 12, 1) + 34 * Mid(Aux, 13, 1) + 81 * Mid(Aux, 14, 1) + 76 * Mid(Aux, 15, 1) + 27 * Mid(Aux, 16, 1) + 90 * Mid(Aux, 17, 1) + 9 * Mid(Aux, 18, 1) + 30 * Mid(Aux, 19, 1) + 	3 * Mid(Aux, 20, 1)) Mod 97
+    
+	MB = SubEntidade & " " & Right(Format(ID, "000 0"), 5) & Format(check, "00")
+Else
+    MB = ""
+End If
+End Function

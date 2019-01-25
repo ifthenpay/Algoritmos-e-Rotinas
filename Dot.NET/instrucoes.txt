@@ -1,0 +1,9 @@
+- Adicionar a dll ao seu projecto (C# ou VB.Net)
+
+- Adicionar as chamadas à classe
+	c#: using ifmb;
+	vb: Imports ifmb.Ifmb
+
+- Chamar a função e passar os respectivos parâmetros
+	c#: string referencia = Ifmb.GetPaymentRef(entidade, subentidade, order_id, valor_a_pagar);
+	vb: Dim referencia AS String = GetPaymentRef(entidade, subentidade, order_id, valor_a_pagar)

@@ -10,7 +10,7 @@ class MbWay
     // webservice MBWay 
     private $mbwayApi = 'https://www.ifthenpay.com/mbwayws/IfthenPayMBW.asmx/';
     // A sua Mbway key fornecida pela ifthepay
-    private $mbwaykey = 'XYZ-000001';
+    private $mbwaykey = 'AAA-123456';
     // chave anti-phishing definida
     private $chaveAntiPhishing = 'f261aebfa55138c20caf18556e17cd29';
     //  no caso desta API terá de ter sempre o valor constante “03”

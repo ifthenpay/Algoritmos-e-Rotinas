@@ -14,7 +14,7 @@ class MbWay
     // chave anti-phishing definida
     private $chaveAntiPhishing = 'f261aebfa55138c20caf18556e17cd29';
     //  no caso desta API terá de ter sempre o valor constante “03”
-    private $canal = 03;
+    private $canal = '03';
     // se pretende que o formato devolvido seja em JSON 
     private $json;
     //  id gerado automaticamente (SetPedido/SetPedidoJSON), poderá ser guardado para consulta posterior do estado do pedido

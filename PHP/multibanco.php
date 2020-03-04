@@ -1,15 +1,15 @@
 <?php
 /*
-INSTRU«’ES:
+INSTRU√á√ïES:
 
 
-Para utilizar basta colocar no seu cÛdigo as duas funÁıes abaixo apresentadas e depois 
-invocar a funÁ„o GenerateMbRef($ent_id, $subent_id, $order_id, $order_value) passando
-os respectivos par‚metros:
+Para utilizar basta colocar no seu c√≥digo as duas fun√ß√µes abaixo apresentadas e depois 
+invocar a fun√ß√£o GenerateMbRef($ent_id, $subent_id, $order_id, $order_value) passando
+os respectivos par√¢metros:
 
-$ent_id - Entidade fornecida pela ifthen software no acto da realizaÁ„o de contracto
-$subent_id - Subentidade fornecida pela ifthen software no acto da realizaÁ„o de contracto
-$order_id - n˙mero de identificaÁ„o do pagamento que pode ser o n˙mero de cliente, n˙mero de encomenda, etc
+$ent_id - Entidade fornecida pela ifthen software no acto da realiza√ß√£o de contracto
+$subent_id - Subentidade fornecida pela ifthen software no acto da realiza√ß√£o de contracto
+$order_id - n√∫mero de identifica√ß√£o do pagamento que pode ser o n√∫mero de cliente, n√∫mero de encomenda, etc
 $order_value - valor a pagar
 
 
@@ -19,7 +19,7 @@ $order_value - valor a pagar
 
 
 
-//INICIO TRATAMENTO DEFINI«’ES REGIONAIS
+//INICIO TRATAMENTO DEFINI√á√ïES REGIONAIS
 	function format_number($number) 
 	{ 
 		$verifySepDecimal = number_format(99,2);
@@ -70,7 +70,7 @@ $order_value - valor a pagar
 		
 		return $valorTmp; 
 	} 
-//FIM TRATAMENTO DEFINI«’ES REGIONAIS
+//FIM TRATAMENTO DEFINI√á√ïES REGIONAIS
 
 
 //INICIO REF MULTIBANCO
@@ -82,13 +82,13 @@ $order_value - valor a pagar
 		
 		if(strlen($ent_id)<5)
 		{
-			echo "Lamentamos mas tem de indicar uma entidade v·lida";
+			echo "Lamentamos mas tem de indicar uma entidade v√°lida";
 			return;
 		}else if(strlen($ent_id)>5){
-			echo "Lamentamos mas tem de indicar uma entidade v·lida";
+			echo "Lamentamos mas tem de indicar uma entidade v√°lida";
 			return;
-		}if(strlen($subent_id)==0){
-			echo "Lamentamos mas tem de indicar uma subentidade v·lida";
+		}else if(strlen($subent_id)==0){
+			echo "Lamentamos mas tem de indicar uma subentidade v√°lida";
 			return;
 		}
 		
@@ -97,7 +97,7 @@ $order_value - valor a pagar
 		$order_value =  format_number($order_value);
 
 		if ($order_value < 1){
-			echo "Lamentamos mas È impossÌvel gerar uma referÍncia MB para valores inferiores a 1 Euro";
+			echo "Lamentamos mas √© imposs√≠vel gerar uma refer√™ncia MB para valores inferiores a 1 Euro";
 			return;
 		}
 		if ($order_value >= 1000000){
@@ -118,7 +118,7 @@ $order_value - valor a pagar
 			$chk_str = sprintf('%05u%03u%04u%08u', $ent_id, $subent_id, $order_id, round($order_value*100));
 		}
 			
-		//c·lculo dos check digits
+		//c√°lculo dos check digits
 
 		$chk_array = array(3, 30, 9, 90, 27, 76, 81, 34, 49, 5, 50, 15, 53, 45, 62, 38, 89, 17, 73, 51);
 		
@@ -134,7 +134,7 @@ $order_value - valor a pagar
 
 		echo "<pre>";
 		echo "\n\n<b>Entidade:    </b>".$ent_id;
-		echo "\n\n<b>ReferÍncia:  </b>".substr($chk_str, 5, 3)." ".substr($chk_str, 8, 3)." ".substr($chk_str, 11, 1).$chk_digits;
+		echo "\n\n<b>Refer√™ncia:  </b>".substr($chk_str, 5, 3)." ".substr($chk_str, 8, 3)." ".substr($chk_str, 11, 1).$chk_digits;
 		echo "\n\n<b>Valor: &euro;&nbsp;</b>".number_format($order_value, 2,',', ' ');
 		echo "</pre>";           
 	}

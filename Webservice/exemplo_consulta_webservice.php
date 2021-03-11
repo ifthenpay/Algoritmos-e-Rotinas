@@ -1,7 +1,7 @@
 <?php
 	/***************************************************************************
 	 *                                                                         *
-	 * FunÁ„o que faz a chamada ao webservice e retorna um array com os dados. *
+	 * Fun√ß√£o que faz a chamada ao webservice e retorna um array com os dados. *
 	 * Para ver como invocar e tratar dados ver mais abaixo.                   *
 	 *                                                                         *
 	 ***************************************************************************/
@@ -22,12 +22,12 @@
 								"sandbox" => $sandbox
 							);
 			
-			 $ifmbWsUrl = "http://www.ifthensoftware.com/IfmbWS/IfmbWS.asmx?WSDL"; 
+			 $ifmbWsUrl = "http://www.ifthenpay.com/IfmbWS/IfmbWS.asmx?WSDL"; 
 			/**************************************************************************
 			 *                                                                        *
-			 * Para utilizar o HTTPS tem de ter a extens„o do OpenSSL do PHP ativa    *
+			 * Para utilizar o HTTPS tem de ter a extens√£o do OpenSSL do PHP ativa    *
 			 *                                                                        *
-			 * $ifmbWsUrl = "https://www.ifthensoftware.com/IfmbWS/IfmbWS.asmx?WSDL"; *
+			 * $ifmbWsUrl = "https://www.ifthenpay.com/IfmbWS/IfmbWS.asmx?WSDL"; *
 			 *                                                                        *
 			 **************************************************************************/
 		
@@ -61,25 +61,25 @@
 	
 	/********************************************
 	 *                                          *
-	 * Exemplo de como utilizar a funÁ„o acima. *
+	 * Exemplo de como utilizar a fun√ß√£o acima. *
 	 *                                          *
 	 ********************************************/
 	
-	//vari·veis com informaÁ„o de teste
-	$ifmb_chaveBO = '0000-0000-0000-0000'; //chave que utilizou no momento do registo no nosso site para consultar os pagamentos. Se n„o sabe entre em contato com a Ifthen.
+	//vari√°veis com informa√ß√£o de teste
+	$ifmb_chaveBO = '0000-0000-0000-0000'; //chave que utilizou no momento do registo no nosso site para consultar os pagamentos. Se n√£o sabe entre em contato com a Ifthen.
 	$ifmb_entidade = '11202'; //Entidade fornecida pela Ifthen. Ex.: 10559, 11202, 11473, 11604
 	$ifmb_subentidade = '000'; //Sub-Entidade fornecida pela Ifthen
 	$ifmb_data_hora_inicio = '';
 	$ifmb_data_hora_fim = '';
 	$ifmb_referencia = '';
 	$ifmb_valor = '';
-	$ifmb_sandbox = 0; //vari·vel que permite alternar entre o ambiente de produÁ„o e o ambiente de testes. 0 - Ambiente de ProduÁ„o 1 - Ambiente de Testes
+	$ifmb_sandbox = 0; //vari√°vel que permite alternar entre o ambiente de produ√ß√£o e o ambiente de testes. 0 - Ambiente de Produ√ß√£o 1 - Ambiente de Testes
 	
-	//InvocaÁ„o da funÁ„o de chamada ao Webservice
+	//Invoca√ß√£o da fun√ß√£o de chamada ao Webservice
 	$resultado =getPayments($ifmb_chaveBO, $ifmb_entidade, $ifmb_subentidade, $ifmb_data_hora_inicio, $ifmb_data_hora_fim, $ifmb_referencia, $ifmb_valor, $ifmb_sandbox);
 
 	
-	//Forma exemplo de tratar a informaÁ„o.
+	//Forma exemplo de tratar a informa√ß√£o.
 	$res="";
 	
 	foreach($resultado as $item)
@@ -95,7 +95,7 @@
 		$res .= '<b>Tarifa:</b> ' . $item->Tarifa . '<br />';
 		$res .= '<b>ValorLiquido:</b> ' . $item->ValorLiquido . '<br />';
 		}else{
-			$res .= '<b>CÛdigo Erro:</b> ' . $item->CodigoErro . '<br />';
+			$res .= '<b>C√≥digo Erro:</b> ' . $item->CodigoErro . '<br />';
 			$res .= '<b>Mensagem Erro:</b> ' . $item->MensagemErro . '<br />';
 		}
 		$res .= '<br />';
